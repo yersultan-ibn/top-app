@@ -12,7 +12,10 @@ export default function Home(): JSX.Element {
     <>
       <div>
         <Htag tag="h2">Текст</Htag>
-        <Button appearance="primary">Кнопка</Button>
+        <Button appearance="primary" className="'fadf">
+          Кнопка
+        </Button>
+   
       </div>
     </>
   );
