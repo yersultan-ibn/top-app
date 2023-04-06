@@ -15,9 +15,9 @@ export default function Home(): JSX.Element {
       <div>
         <Htag tag="h1">TEXT</Htag>
         <Button appearance="primary">Button</Button>
-        <P size="m">Text P2</P>
-        <P size="l">Text 1P</P>
-        <P size="s">Text P1</P>
+        <P size="m">Text pm</P>
+        <P size="l">Text pl</P>
+        <P size="s">Text ps</P>
         <Tag size="m">Tag</Tag>
       </div>
     </>
