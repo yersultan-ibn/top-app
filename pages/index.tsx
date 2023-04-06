@@ -5,6 +5,7 @@ import styles from "@/styles/Home.module.css";
 import { Htag } from "../components";
 import { Button } from "../components";
 import { P } from "../components";
+import { Tag } from "../components";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,17 +13,12 @@ export default function Home(): JSX.Element {
   return (
     <>
       <div>
-        <Htag tag="h2">Текст</Htag>
-        <Button appearance="primary" arrow="right">
-          Кнопка
-        </Button>
-
-        <Button appearance="ghost" arrow="down">
-          Кнопка
-        </Button>
-        <P size="s">Litle</P>
-        <P size="m">Medium</P>
-        <P size="l">BIG</P>
+        <Htag tag="h1">TEXT</Htag>
+        <Button appearance="primary">Button</Button>
+        <P size="m">Text P2</P>
+        <P size="l">Text 1P</P>
+        <P size="s">Text P1</P>
+        <Tag size="m">Tag</Tag>
       </div>
     </>
   );

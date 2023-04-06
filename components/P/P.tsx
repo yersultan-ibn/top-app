@@ -1,12 +1,12 @@
-import ArrowIcon from "./arrow.svg";
-import styles from "./P.module.css";
-import cn from "classnames";
+import React from "react";
 import { PProps } from "./P.props";
+import cn from "classnames";
+import styles from "./P.module.css";
 
 export const P = ({
-  size = "m",
-  children,
+  size = "s",
   className,
+  children,
   ...props
 }: PProps): JSX.Element => {
   return (
