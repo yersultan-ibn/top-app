@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import { Htag } from "../components";
+import { Htag, Rating } from "../components";
 import { Button } from "../components";
 import { P } from "../components";
 import { Tag } from "../components";
@@ -19,6 +19,7 @@ export default function Home(): JSX.Element {
         <P size="l">Text pl</P>
         <P size="s">Text ps</P>
         <Tag size="m">Tag</Tag>
+        <Rating rating={4} />
       </div>
     </>
   );
