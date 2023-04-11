@@ -1,28 +1,49 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
-import { Htag, Rating } from "../components";
-import { Button } from "../components";
-import { P } from "../components";
-import { Tag } from "../components";
-import { useState } from "react";
-import { Layout, withLayout } from "../layout/Layout";
-const inter = Inter({ subsets: ["latin"] });
+import { GetStaticProps } from 'next';
+import React, { useState } from 'react';
+import { Button, Htag, P, Rating, Tag } from '../components';
+import { withLayout } from '../layout/Layout';
+import axios from 'axios';
+import { MenuItem } from '../interfaces/menu.interface';
 
-function Home(): JSX.Element {
-  const [rating, setRating] = useState<number>(4);
+function Home({ menu }: HomeProps): JSX.Element {
+	const [rating, setRating] = useState<number>(4);
 
-  return (
-    <Layout>
-      <Htag tag="h1">TEXT</Htag>
-      <Button appearance="primary">Button</Button>
-      <P size="m">Text pm</P>
-      <P size="l">Text pl</P>
-      <P size="s">Text ps</P>
-      <Tag size="m">Tag</Tag>
-      <Rating rating={4} isEditable={true} setRating={setRating} />
-    </Layout>
-  );
+	return (
+		<>
+			<Htag tag='h1'>Заголовок</Htag>
+			<Button appearance='primary' arrow='right'>Кнопка</Button>
+			<Button appearance='ghost' arrow='down'>Кнопка</Button>
+			<P size='l'>Большой</P>
+			<P>Средний</P>
+			<P size='s'>Маленький</P>
+			<Tag size='s'>Ghost</Tag>
+			<Tag size='m' color='red'>Red</Tag>
+			<Tag size='s' color='green'>Green</Tag>
+			<Tag color='primary'>Green</Tag>
+			<Rating rating={rating} isEditable setRating={setRating} />
+			<ul>
+				{menu.map(m => (<li key={m._id.secondCategory}>{m._id.secondCategory}</li>))}
+			</ul>
+		</>
+	);
 }
+
 export default withLayout(Home);
+
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
+	const firstCategory = 0;
+	const { data: menu } = await axios.post<MenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', {
+		firstCategory
+	});
+	return {
+		props: {
+			menu,
+			firstCategory
+		}
+	};
+};
+
+interface HomeProps extends Record<string, unknown> {
+	menu: MenuItem[];
+	firstCategory: number;
+}
