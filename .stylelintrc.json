@@ -1,15 +1,16 @@
 {
-	"extends": [
-		"stylelint-config-standard",
-		"stylelint-order-config-standard"
-	],
+	"extends": "stylelint-config-clean-order",
 	"plugins": [
-		"stylelint-order"
+	"stylelint-order"
 	],
 	"rules": {
-		"indentation": [
-			"tab"
-		],
-		"color-hex-case": "upper"
+	"order/order": [
+	"custom-properties",
+	"declarations"
+	],
+	"order/properties-order": [
+	"width",
+	"height"
+	]
 	}
-}
+	}
