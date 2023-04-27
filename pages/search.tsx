@@ -13,7 +13,7 @@ function Search(): JSX.Element {
 	);
 }
 
-export default withLayout(Search);
+export default  withLayout(Search);
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 	const firstCategory = 0;
