@@ -5,23 +5,20 @@ import { Card } from '../Card/Card';
 import { Rating } from '../Rating/Rating';
 import { Tag } from '../Tag/Tag';
 import { Button } from '../Button/Button';
-import { priceRu } from '../../helpers/helpers';
+import { declOfNum, priceRu } from '../../helpers/helpers';
 import { Divider } from '../Divider/Divider';
-
 import Image from 'next/image';
- 
 
 export const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
 	return (
 		<Card className={styles.product}>
 			<div className={styles.logo}>
 				<Image
-				src={process.env.NEXT_PUBLIC_DOMAIN + product.image}
-				alt={product.title}
-				width={70}
-				height={70}
-				/>				
-			<img src={process.env.NEXT_PUBLIC_DOMAIN + product.image} alt={product.title} />
+					src={process.env.NEXT_PUBLIC_DOMAIN + product.image}
+					alt={product.title}
+					width={70}
+					height={70}
+				/>
 			</div>
 			<div className={styles.title}>{product.title}</div>
 			<div className={styles.price}>
@@ -39,13 +36,13 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
 			<Divider className={styles.hr} />
 			<div className={styles.description}>{product.description}</div>
 			<div className={styles.feature}>
-        {product.characteristics.map(c => (
-			<div className={styles.characteristics} key={c.name}>
-			<span className={styles.characteristicsName}>{c.name}</span>  
-			<span className={styles.characteristicsDots}></span>  
-			<span className={styles.characteristicsValue}>{c.value}</span>  
-		</div>
-		))}
+				{product.characteristics.map(c => (
+					<div className={styles.characteristics} key={c.name}>
+						<span className={styles.characteristicsName}>{c.name}</span>
+						<span className={styles.characteristicsDots}></span>
+						<span className={styles.characteristicsValue}>{c.value}</span>
+					</div>
+				))}
 			</div>
 			<div className={styles.advBlock}>
 				{product.advantages && <div className={styles.advantages}>
@@ -57,7 +54,7 @@ export const Product = ({ product, className, ...props }: ProductProps): JSX.Ele
 					<div>{product.disadvantages}</div>
 				</div>}
 			</div>
-			<Divider className={styles.hr} />
+			<Divider className={cn(styles.hr, styles.hr2)} />
 			<div className={styles.actions}>
 				<Button appearance='primary'>Узнать подробнее</Button>
 				<Button appearance='ghost' arrow={'right'} className={styles.reviewButton}>Читать отзывы</Button>
