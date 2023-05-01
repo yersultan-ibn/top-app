@@ -10,12 +10,11 @@ import { useForm, Controller } from 'react-hook-form';
 import { IReviewForm } from './ReviewForm.interface';
 
 export const ReviewForm = ({ productId, className, ...props }: ReviewFormProps): JSX.Element => {
-	const {register, control, handleSubmit, formState} = useForm<IReviewForm>()													
-	
-const onSubmit = (data: IReviewForm) => {
- console.log(data);
- 
-};
+	const { register, control, handleSubmit } = useForm<IReviewForm>();
+
+	const onSubmit = (data: IReviewForm) => {
+		console.log(data);
+	};
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
@@ -27,15 +26,14 @@ const onSubmit = (data: IReviewForm) => {
 				<div className={styles.rating}>
 					<span>Оценка:</span>
 					<Controller
-					
-					control={control}
-					name="rating"
-					render={({field}) => (
-						<Rating isEditable rating={field.value} setRating={field.onChange} />
-					)}
+						control={control}
+						name='rating'
+						render={({ field }) => (
+							<Rating isEditable rating={field.value} ref={field.ref} setRating={field.onChange} />
+						)}
 					/>
 				</div>
-				<Textarea {...register('description')} placeholder='Текст отзыва' className={styles.description} />
+				<Textarea  {...register('description')} placeholder='Текст отзыва' className={styles.description} />
 				<div className={styles.submit}>
 					<Button appearance="primary">Отправить</Button>
 					<span className={styles.info}>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
