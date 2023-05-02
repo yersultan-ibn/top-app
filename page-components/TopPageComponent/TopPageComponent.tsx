@@ -15,8 +15,8 @@ export const TopPageComponent = ({ page, products, firstCategory }: TopPageCompo
 	};
 
 	useEffect(() => {
-		dispathSort({type: 'reset', initialState: products});
-	}, [products])
+		dispathSort({ type: 'reset', initialState: products });
+	}, [products]);
 
 	return (
 		<div className={styles.wrapper}>
