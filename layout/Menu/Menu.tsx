@@ -55,7 +55,7 @@ export const Menu = (): JSX.Element => {
 			<ul className={styles.firstLevelList}>
 				{firstLevelMenu.map(m => (
 					<li key={m.route} aria-expanded={m.id == firstCategory}>
-						<Link href={`/${m.route}`} legacyBehavior>
+						<Link href={`/${m.route}`}>
 							<a>
 								<div className={cn(styles.firstLevel, {
 									[styles.firstLevelActive]: m.id == firstCategory
@@ -107,7 +107,7 @@ export const Menu = (): JSX.Element => {
 		return (
 			pages.map(p => (
 				<motion.li key={p._id} variants={variantsChildren}>
-					<Link href={`/${route}/${p.alias}`} legacyBehavior>
+					<Link href={`/${route}/${p.alias}`}>
 						<a
 							tabIndex={isOpened ? 0 : -1}
 							className={cn(styles.thirdLevel, {
