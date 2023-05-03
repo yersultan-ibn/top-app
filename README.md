@@ -1,8 +1,8 @@
 # Next.js course project
 
-### Deployed by Netlify.com
+### Deployed by Vercel.com
 
-https://top-app-kappa.vercel.app/
+https://owl-top-omega.vercel.app/courses/data-science
 
 ## Running locally in development mode
 
