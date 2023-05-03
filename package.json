@@ -23,6 +23,7 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.43.9",
     "react-router-dom": "^6.11.0",
+    "react-yandex-metrika": "^2.6.0",
     "stylelint-config-clean-order": "^5.0.1",
     "typescript": "5.0.3"
   },
